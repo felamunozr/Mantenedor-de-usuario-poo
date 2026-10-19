@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<VBox alignment="CENTER" prefHeight="265.0" prefWidth="396.0" spacing="20.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.munoz.felipe.controller.UserController">
+    <padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+    </padding>
+   <children>
+      <Label prefHeight="17.0" prefWidth="386.0" text="Mantenedor de Usuario">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Label>
+
+      <HBox prefHeight="31.0" prefWidth="356.0">
+         <children>
+            <TextField fx:id="nombreField" focusTraversable="false" promptText="Nombre" />
+            <TextField fx:id="rutField" focusTraversable="false" promptText="Rut" />
+            <Spinner fx:id="edadField" focusTraversable="false" initialValue="18" max="95" min="18" promptText="Edad" />
+         </children>
+      </HBox>
+
+      <HBox alignment="CENTER_RIGHT" prefHeight="25.0" prefWidth="356.0" spacing="10.0">
+         <children>
+            <Button defaultButton="true" mnemonicParsing="false" onMouseClicked="#addMouseClicked" text="Añadir" />
+            <Button fx:id="eliminarBtn" disable="true" mnemonicParsing="false" onMouseClicked="#eliminarUsuario" text="Eliminar" />
+         </children>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+         <VBox.margin>
+            <Insets />
+         </VBox.margin>
+      </HBox>
+
+      <Separator prefWidth="200.0" />
+
+      <TableView fx:id="tableUsuarios" onMouseClicked="#seleccionarUsuario">
+        <columns>
+          <TableColumn fx:id="idColum" prefWidth="75.0" text="ID" />
+          <TableColumn fx:id="nombreColum" prefWidth="75.0" text="Nombre" />
+            <TableColumn fx:id="rutColum" prefWidth="75.0" text="Rut" />
+            <TableColumn fx:id="edadColum" prefWidth="75.0" text="Edad" />
+        </columns>
+         <columnResizePolicy>
+            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+         </columnResizePolicy>
+      </TableView>
+
+      <Separator prefWidth="200.0" />
+      <Label fx:id="msgLabel" />
+   </children>
+</VBox>
