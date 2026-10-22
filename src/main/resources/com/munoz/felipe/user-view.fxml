@@ -50,6 +50,21 @@
          </columnResizePolicy>
       </TableView>
 
+      <HBox prefHeight="100.0" prefWidth="200.0" spacing="50.0">
+         <children>
+            <Button fx:id="saveBtn1" alignment="CENTER" contentDisplay="CENTER" defaultButton="true" mnemonicParsing="false" onMouseClicked="#onGuardar" text="Guardar">
+               <padding>
+                  <Insets left="60.0" right="50.0" />
+               </padding>
+            </Button>
+            <Button fx:id="leerBtn" alignment="CENTER" contentDisplay="CENTER" defaultButton="true" mnemonicParsing="false" onMouseClicked="#onLeer" text="Leer">
+               <padding>
+                  <Insets left="60.0" right="50.0" />
+               </padding>
+            </Button>
+         </children>
+      </HBox>
+
       <Separator prefWidth="200.0" />
       <Label fx:id="msgLabel" />
    </children>

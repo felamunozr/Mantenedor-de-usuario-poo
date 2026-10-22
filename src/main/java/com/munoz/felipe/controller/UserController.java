@@ -1,5 +1,6 @@
 package com.munoz.felipe.controller;
 
+import com.munoz.felipe.dao.UserDao;
 import com.munoz.felipe.dto.UserDto;
 import com.munoz.felipe.model.UserModel;
 import javafx.collections.FXCollections;
@@ -11,6 +12,8 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
+
+import java.io.IOException;
 
 
 public class UserController {
@@ -49,7 +52,12 @@ public class UserController {
     @FXML
     public Button eliminarBtn;
 
+    @FXML
+    public Button saveBtn;
+
+    UserDao usersDao = new UserDao();
     private UserDto selectedUser;
+
     @FXML
     public void initialize() {
         idColum.setCellValueFactory(new PropertyValueFactory<>("id"));
@@ -61,7 +69,7 @@ public class UserController {
         this.tableUsuarios.setItems(this.usuarios);
     }
 
-    public void addMouseClicked(MouseEvent mouseEvent) {
+    public void addMouseClicked(MouseEvent mouseEvent) throws IOException {
         UserDto usuario = new UserDto();
 
         usuario.setNombre(nombreField.getText());
@@ -79,6 +87,13 @@ public class UserController {
             msgLabel.setTextFill(Color.GREEN);
             msgLabel.setText("Se ha agregado un usuario nuevo!");
         }
+    }
+    public void onLeer(MouseEvent mouseEvent) throws  IOException {
+        String data = this.usersDao.leerDato();
+        System.out.println("Data: " + data);
+    }
+    public void onGuardar(MouseEvent mouseEvent) throws IOException {
+        usersDao.guardarDato("Hola soy un texto!");
     }
 
     @FXML
