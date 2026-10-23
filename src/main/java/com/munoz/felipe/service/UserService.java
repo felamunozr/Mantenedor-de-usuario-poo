@@ -1,10 +1,10 @@
-package com.munoz.felipe.model;
+package com.munoz.felipe.service;
 
 import com.munoz.felipe.dto.UserDto;
 
 import java.util.ArrayList;
 
-public class UserModel {
+public class UserService {
     private static final ArrayList<UserDto> usuarios =  new ArrayList<>();
 
     public static ArrayList<UserDto> getUsuarios(){
