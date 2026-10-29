@@ -4,6 +4,7 @@ module com.munoz.felipe {
 
     requires org.controlsfx.controls;
     requires org.kordamp.bootstrapfx.core;
+    requires com.google.gson;
 
     opens com.munoz.felipe to javafx.fxml;
 

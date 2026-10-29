@@ -5,7 +5,7 @@ import com.munoz.felipe.dto.UserDto;
 import java.util.ArrayList;
 
 public class UserService {
-    private static final ArrayList<UserDto> usuarios =  new ArrayList<>();
+    private static ArrayList<UserDto> usuarios =  new ArrayList<>();
 
     public static ArrayList<UserDto> getUsuarios(){
         return usuarios;

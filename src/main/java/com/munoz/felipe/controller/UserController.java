@@ -2,7 +2,8 @@ package com.munoz.felipe.controller;
 
 import com.munoz.felipe.dao.UserDao;
 import com.munoz.felipe.dto.UserDto;
-import com.munoz.felipe.model.UserModel;
+import com.munoz.felipe.service.UserService;
+import com.munoz.felipe.service.UserService;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -14,7 +15,6 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
 
 import java.io.IOException;
-
 
 public class UserController {
 
@@ -89,11 +89,11 @@ public class UserController {
         }
     }
     public void onLeer(MouseEvent mouseEvent) throws  IOException {
-        String data = this.usersDao.leerDato();
+        String data = this.usersDao.leer();
         System.out.println("Data: " + data);
     }
     public void onGuardar(MouseEvent mouseEvent) throws IOException {
-        usersDao.guardarDato("Hola soy un texto!");
+        usersDao.guardar(UserService.getUsuarios());
     }
 
     @FXML
@@ -106,8 +106,8 @@ public class UserController {
 
     @FXML
     public void eliminarUsuario(MouseEvent mouseEvent){
-        UserModel.eliminarUsuario(selectedUser);
-        usuarios.setAll(UserModel.getUsuarios());
+        UserService.eliminarUsuario(selectedUser);
+        usuarios.setAll(UserService.getUsuarios());
         eliminarBtn.setDisable(true);
     }
 
